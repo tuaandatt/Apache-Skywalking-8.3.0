@@ -67,7 +67,7 @@ Dữ liệu quan trọng có thể bị truy xuất, xóa, hoặc chỉnh sửa 
 
 •   Không có auth/token bảo vệ (mặc định)
 
-**Cài đặt SkyWalking 8.3.0**
+**Trên máy Ubuntu Cài đặt SkyWalking 8.3.0**
 Tải về:
 
 **wget https://archive.apache.org/dist/skywalking/8.3.0/apache-skywalking-apm-8.3.0.tar.gz**
@@ -86,7 +86,7 @@ Tải về một file nhị phân từ server attacker (qua wget) và cấp quy�
 
 ![image](https://github.com/user-attachments/assets/94dff19d-f2cd-4038-9960-837e4636c0a1)
 
-Biên dịch file Java (code.java) thành code.class
+Biên dịch file Java (code.java) thành code.class và chuyển về dạng HEX để phù hợp với BlobValue trong File_write
 
 ![image](https://github.com/user-attachments/assets/29709d6b-b6e5-4680-8410-6a476da99e27)
 
@@ -94,7 +94,7 @@ Thực thi file nhị phân /tmp/shell_code.bin, đọc và in ra output từ fi
 
 ![image](https://github.com/user-attachments/assets/45366586-4464-4a73-bb6c-614cbe84e123)
 
-Biên dịch file Java (run.java) thành run.class
+Biên dịch file Java (run.java) thành run.class và chuyển về dạng HEX để phù hợp với BlobValue trong File_write
 
 ![image](https://github.com/user-attachments/assets/3a2927a9-5f3f-475c-b604-615866da9497)
 
