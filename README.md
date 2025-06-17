@@ -70,7 +70,7 @@ Dữ liệu quan trọng có thể bị truy xuất, xóa, hoặc chỉnh sửa 
 **Cài đặt SkyWalking 8.3.0**
 Tải về:
 
-****wget https://archive.apache.org/dist/skywalking/8.3.0/apache-skywalking-apm-8.3.0.tar.gz**
+**wget https://archive.apache.org/dist/skywalking/8.3.0/apache-skywalking-apm-8.3.0.tar.gz**
 
 **tar -xvzf apache-skywalking-apm-8.3.0.tar.gz**
 
@@ -80,13 +80,21 @@ Chạy server:
 
 **./bin/startup.sh   //Mặc định Web UI chạy tại http://localhost:8080/**
 
-**PoC: **
+**PoC:**
+
+Tải về một file nhị phân từ server attacker (qua wget) và cấp quyền thực thi cho file đó
 
 ![image](https://github.com/user-attachments/assets/94dff19d-f2cd-4038-9960-837e4636c0a1)
 
+Biên dịch file Java (code.java) thành code.class
+
 ![image](https://github.com/user-attachments/assets/29709d6b-b6e5-4680-8410-6a476da99e27)
 
+Thực thi file nhị phân /tmp/shell_code.bin, đọc và in ra output từ file thực thi đó
+
 ![image](https://github.com/user-attachments/assets/45366586-4464-4a73-bb6c-614cbe84e123)
+
+Biên dịch file Java (run.java) thành run.class
 
 ![image](https://github.com/user-attachments/assets/3a2927a9-5f3f-475c-b604-615866da9497)
 
