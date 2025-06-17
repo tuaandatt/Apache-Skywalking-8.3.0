@@ -31,3 +31,23 @@ trong phiên bản jdk cao hơn và cần phải tìm chuỗi tham chiếu trong
 
 ![image](https://github.com/user-attachments/assets/1bdb9db1-2d5e-48d7-b744-a7796f096ffe)
 ![image](https://github.com/user-attachments/assets/8a4785d2-7f78-4194-aaa7-2f8a94eae342)
+
+Hậu quả:
+
+Khi sử dụng H2 database (mặc định trong SkyWalking 8.3.0), cơ chế thực thi SQL của H2 cho phép chạy nhiều câu lệnh, dẫn đến khả năng thực thi câu lệnh SQL tùy ý (SQL Injection), phá hủy hoặc truy xuất dữ liệu bất hợp pháp.
+
+=> Kẻ tấn công có thể gửi truy vấn GraphQL chứa mã độc trong tham số metricName làm cho hệ thống thực thi câu lệnh SQL nguy hiểm trên cơ sở dữ liệu.
+
+Demo:
+
+Tạo payload trên msfvenom
+
+![1](https://github.com/user-attachments/assets/d0ef027f-e6ba-43e9-b402-1e7da3010bd1)
+
+Sử dụng metasploit để lắng nghe kết nối
+
+![2](https://github.com/user-attachments/assets/8373721c-5144-4f09-add4-a27161dad04c)
+
+Tạo file code.Java để đẩy payload shell_code.bin và cấp quyền chmod +x cho file vừa tải vào mục /tmp của server
+
+![3](https://github.com/user-attachments/assets/c1f85579-ad6c-49fa-98fb-7d917160a96d)
