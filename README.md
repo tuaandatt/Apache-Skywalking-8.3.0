@@ -10,12 +10,12 @@ Mức độ: High
 
 Điều kiện: Ứng dụng sử dụng H2 Database (cấu hình mặc định)
 
-2. Mô tả lỗ hổng
+**2. Mô tả lỗ hổng**
 
 Lỗ hổng SQL Injection tồn tại trong lớp H2QueryDAO do thiếu kiểm tra và lọc đầu vào từ người dùng. Trường metricName được truyền từ truy vấn GraphQL tới hàm queryLogs(...), sau đó được chèn trực tiếp vào câu lệnh SQL mà không sử dụng cơ chế escape hoặc parameter binding.
 
 
-3. Chi tiết kỹ thuật
+**3. Chi tiết kỹ thuật**
 
 •   API /graphql cho phép người dùng gửi truy vấn có chứa metricName
 
@@ -39,7 +39,7 @@ trong phiên bản jdk cao hơn và cần phải tìm chuỗi tham chiếu trong
 ![image](https://github.com/user-attachments/assets/1bdb9db1-2d5e-48d7-b744-a7796f096ffe)
 ![image](https://github.com/user-attachments/assets/8a4785d2-7f78-4194-aaa7-2f8a94eae342)
 
-4. Hậu quả
+**4. Hậu quả**
 
 Cho phép kẻ tấn công thực thi câu lệnh SQL nguy hiểm trên cơ sở dữ liệu.
 
