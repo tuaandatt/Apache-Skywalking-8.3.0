@@ -16,6 +16,8 @@ Mức độ: High
 
 •   Máy chủ có thể kết nối outbound đến attacker để thực thi payload từ xa qua 
 
+•   Có cài đặt Java Runtime:	Java 8 hoặc Java 11
+
 **2. Mô tả lỗ hổng**
 
 Lỗ hổng SQL Injection tồn tại trong lớp H2QueryDAO do thiếu kiểm tra và lọc đầu vào từ người dùng. Trường metricName được truyền từ truy vấn GraphQL tới hàm queryLogs(...), sau đó được chèn trực tiếp vào câu lệnh SQL mà không sử dụng cơ chế escape hoặc parameter binding.
@@ -57,8 +59,20 @@ Dữ liệu quan trọng có thể bị truy xuất, xóa, hoặc chỉnh sửa 
 
 Demo: 
 
+•   Yêu cầu hệ thống: môi trường kiểm thử sử dụng Apache Skywalking 8.3.0
 
+•   Java Runtime: Java 11
 
+•   GraphQL API được mở với port: 8080
+
+•   Không có auth/token bảo vệ (mặc định)
+
+Cài đặt SkyWalking 8.3.0
+//
+wget https://archive.apache.org/dist/skywalking/8.3.0/apache-skywalking-apm-8.3.0.tar.gz
+tar -xvzf apache-skywalking-apm-8.3.0.tar.gz
+cd apache-skywalking-apm-bin
+//
 Tạo payload trên msfvenom
 
 ![1](https://github.com/user-attachments/assets/d0ef027f-e6ba-43e9-b402-1e7da3010bd1)
