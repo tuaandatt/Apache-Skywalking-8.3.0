@@ -1,23 +1,29 @@
-# Apache-Skywalking-8.3.0
-Thông tin tóm tắt về CVE-2020-9483
+# Phân tích lỗ hổng CVE-2020-9483 trong Apache SkyWalking ≤ 8.3.0
+1. Thông tin chung
 
-•    CVE ID: CVE-2020-9483
+CVE ID: CVE-2020-9483
 
-•    Mức độ: High
+Mức độ: High
 
-•    Ảnh hưởng: Apache SkyWalking từ bản 6.x đến 8.3.0 (cụ thể khi dùng H2 database)
+Ảnh hưởng: Apache SkyWalking từ 6.x đến 8.3.0
 
-•    Mô tả: Lỗ hổng SQL Injection tồn tại trong lớp H2QueryDAO, cho phép kẻ tấn công thực thi câu lệnh SQL tùy ý thông qua truy vấn từ phía người dùng được chèn trực tiếp vào truy vấn SQL mà không được escape hoặc parameterize.
+Điều kiện: Ứng dụng sử dụng H2 Database (cấu hình mặc định)
 
-Cụ thể hơn trong SkyWalking
+2. Mô tả lỗ hổng
 
-•    API /graphql cho phép người dùng gửi truy vấn có chứa metricName
+Lỗ hổng SQL Injection tồn tại trong lớp H2QueryDAO do thiếu kiểm tra và lọc đầu vào từ người dùng. Trường metricName được truyền từ truy vấn GraphQL tới hàm queryLogs(...), sau đó được chèn trực tiếp vào câu lệnh SQL mà không sử dụng cơ chế escape hoặc parameter binding.
 
-•    OAP nhận truy vấn này, truyền thẳng metricName vào queryLogs(...)
 
-•    metricName được dùng trực tiếp trong sql.append(...) hoặc SelectQueryImpl.from(...)
+3. Chi tiết kỹ thuật
 
-•    Khi sử dụng Database là H2, attacker có thể chèn payload SQL vào CSDL được Skywalking sử dụng trong cấu hình mặc định là h2 và được khởi động với quyền sa.
+•   API /graphql cho phép người dùng gửi truy vấn có chứa metricName
+
+•   OAP nhận truy vấn này, truyền thẳng metricName vào queryLogs(...)
+
+•   metricName được dùng trực tiếp trong sql.append(...) hoặc SelectQueryImpl.from(...)
+
+•   Trong cấu hình mặc định của SkyWalking, H2 database được khởi động với quyền SA (Super Admin)
+
 ![image](https://github.com/user-attachments/assets/2f091608-c5ab-480f-8b6e-77e019d6ff93)
 ![image](https://github.com/user-attachments/assets/3490aff6-bb36-49b3-86e1-1703cd36998f)
 
@@ -32,11 +38,15 @@ trong phiên bản jdk cao hơn và cần phải tìm chuỗi tham chiếu trong
 ![image](https://github.com/user-attachments/assets/1bdb9db1-2d5e-48d7-b744-a7796f096ffe)
 ![image](https://github.com/user-attachments/assets/8a4785d2-7f78-4194-aaa7-2f8a94eae342)
 
-Hậu quả:
+4. Hậu quả
 
-Khi sử dụng H2 database (mặc định trong SkyWalking 8.3.0), cơ chế thực thi SQL của H2 cho phép chạy nhiều câu lệnh, dẫn đến khả năng thực thi câu lệnh SQL tùy ý (SQL Injection), phá hủy hoặc truy xuất dữ liệu bất hợp pháp.
+Cho phép kẻ tấn công thực thi câu lệnh SQL nguy hiểm trên cơ sở dữ liệu.
 
-=> Kẻ tấn công có thể gửi truy vấn GraphQL chứa mã độc trong tham số metricName làm cho hệ thống thực thi câu lệnh SQL nguy hiểm trên cơ sở dữ liệu.
+Có thể ghi file tùy ý lên hệ thống (FILE_WRITE).
+
+Trong một số trường hợp, kết hợp với các chức năng mở rộng có thể dẫn đến RCE.
+
+Dữ liệu quan trọng có thể bị truy xuất, xóa, hoặc chỉnh sửa trái phép.
 
 Demo:
 
