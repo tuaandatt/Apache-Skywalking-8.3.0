@@ -57,7 +57,7 @@ Trong một số trường hợp, kết hợp với các chức năng mở rộn
 
 Dữ liệu quan trọng có thể bị truy xuất, xóa, hoặc chỉnh sửa trái phép.
 
-Demo: 
+**DEMO:**
 
 •   Hệ thống: môi trường kiểm thử sử dụng Apache Skywalking 8.3.0
 
@@ -67,22 +67,20 @@ Demo:
 
 •   Không có auth/token bảo vệ (mặc định)
 
-Cài đặt SkyWalking 8.3.0
+**Cài đặt SkyWalking 8.3.0**
 Tải về:
-//
-wget https://archive.apache.org/dist/skywalking/8.3.0/apache-skywalking-apm-8.3.0.tar.gz
 
-tar -xvzf apache-skywalking-apm-8.3.0.tar.gz
+****wget https://archive.apache.org/dist/skywalking/8.3.0/apache-skywalking-apm-8.3.0.tar.gz**
 
-cd apache-skywalking-apm-bin
+**tar -xvzf apache-skywalking-apm-8.3.0.tar.gz**
+
+**cd apache-skywalking-apm-bin****
 
 Chạy server:
 
-./bin/startup.sh   //Mặc định Web UI chạy tại http://localhost:8080/
+**./bin/startup.sh   //Mặc định Web UI chạy tại http://localhost:8080/**
 
-Trên Attacker
-
-PoC: 
+**PoC: **
 
 ![image](https://github.com/user-attachments/assets/94dff19d-f2cd-4038-9960-837e4636c0a1)
 
