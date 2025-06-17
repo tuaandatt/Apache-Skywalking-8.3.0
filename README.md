@@ -59,7 +59,7 @@ Dữ liệu quan trọng có thể bị truy xuất, xóa, hoặc chỉnh sửa 
 
 Demo: 
 
-•   Yêu cầu hệ thống: môi trường kiểm thử sử dụng Apache Skywalking 8.3.0
+•   Hệ thống: môi trường kiểm thử sử dụng Apache Skywalking 8.3.0
 
 •   Java Runtime: Java 11
 
@@ -68,11 +68,30 @@ Demo:
 •   Không có auth/token bảo vệ (mặc định)
 
 Cài đặt SkyWalking 8.3.0
+Tải về:
 //
 wget https://archive.apache.org/dist/skywalking/8.3.0/apache-skywalking-apm-8.3.0.tar.gz
+
 tar -xvzf apache-skywalking-apm-8.3.0.tar.gz
+
 cd apache-skywalking-apm-bin
-//
+
+Chạy server:
+
+./bin/startup.sh   //Mặc định Web UI chạy tại http://localhost:8080/
+
+Trên Attacker
+
+PoC: 
+
+![image](https://github.com/user-attachments/assets/94dff19d-f2cd-4038-9960-837e4636c0a1)
+
+![image](https://github.com/user-attachments/assets/29709d6b-b6e5-4680-8410-6a476da99e27)
+
+![image](https://github.com/user-attachments/assets/45366586-4464-4a73-bb6c-614cbe84e123)
+
+![image](https://github.com/user-attachments/assets/3a2927a9-5f3f-475c-b604-615866da9497)
+
 Tạo payload trên msfvenom
 
 ![1](https://github.com/user-attachments/assets/d0ef027f-e6ba-43e9-b402-1e7da3010bd1)
