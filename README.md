@@ -51,3 +51,39 @@ Sử dụng metasploit để lắng nghe kết nối
 Tạo file code.Java để đẩy payload shell_code.bin và cấp quyền chmod +x cho file vừa tải vào mục /tmp của server
 
 ![3](https://github.com/user-attachments/assets/c1f85579-ad6c-49fa-98fb-7d917160a96d)
+
+Thực thi file code.java và chuyển về dạng hex
+
+![4](https://github.com/user-attachments/assets/f62fcffe-e0df-4117-a578-6993a1922148)
+
+Sử dung burpsuite để repeater /graphql
+
+![5](https://github.com/user-attachments/assets/a28606f8-2013-4761-8c2e-3dae0905ff2b)
+
+Sử dụng query bị dính lỗ hổng SQL injection để thực thi đoạn hex vừa tạo và đặt tên là code.class
+
+![6](https://github.com/user-attachments/assets/3026590b-088d-4ac3-ad81-475a1108f8df)
+
+Thực thi code và đẩy trực tiếp vào mục /tmp trên server
+
+![7](https://github.com/user-attachments/assets/ebd55453-953e-4a63-9585-b547c4bc09c4)
+
+Payload shell_code.bin đã được đưa vào và được cấp quyền chmod +x dựa trên filecode.java
+
+![8](https://github.com/user-attachments/assets/f807fca4-ffe4-47a1-8755-b633101d31ff)
+
+Chạy file run.java và chuyển về file hex tương tự như code.java để thực thi payload shell_code.bin
+
+![9](https://github.com/user-attachments/assets/64fa13f0-3073-4fbf-97cc-1d88128298b5)
+
+Đẩy tương tự như code.java và đặt tên là run.class đẩy qua server
+
+![10](https://github.com/user-attachments/assets/6bbada02-77f2-4949-8b18-ec768980ceae)
+
+Thực thi file run để chạy file run.class vừa tạo
+
+![11](https://github.com/user-attachments/assets/f4b13fd0-ece0-4b39-a638-3c2e016bd25b)
+
+Khai thác thành công
+
+![12](https://github.com/user-attachments/assets/b91a0577-f659-4806-9ff3-1b65fa865319)
