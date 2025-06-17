@@ -97,3 +97,5 @@ Thực thi file run để chạy file run.class vừa tạo
 Khai thác thành công
 
 ![12](https://github.com/user-attachments/assets/b91a0577-f659-4806-9ff3-1b65fa865319)
+
+Demo chi tiết: https://drive.google.com/file/d/1eBvuMCrXEw2RjZpzHh01-9KJ2mooOFJj/view?usp=sharing
