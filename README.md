@@ -17,8 +17,7 @@ Cụ thể hơn trong SkyWalking
 
 •    metricName được dùng trực tiếp trong sql.append(...) hoặc SelectQueryImpl.from(...)
 
-•    Khi backend là H2 (dễ bị thao túng truy vấn), attacker có thể chèn payload SQL vào
-Cơ sở dữ liệu được Skywalking sử dụng trong cấu hình mặc định là h2 và được khởi động với quyền sa.
+•    Khi sử dụng Database là H2, attacker có thể chèn payload SQL vào CSDL được Skywalking sử dụng trong cấu hình mặc định là h2 và được khởi động với quyền sa.
 ![image](https://github.com/user-attachments/assets/2f091608-c5ab-480f-8b6e-77e019d6ff93)
 ![image](https://github.com/user-attachments/assets/3490aff6-bb36-49b3-86e1-1703cd36998f)
 Cơ sở dữ liệu h2 có chức năng ghi tệp FILE_WRITE (yêu cầu quyền quản trị để thực thi) và cả nội dung tệp và tên tệp đều có thể được kiểm soát.
