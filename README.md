@@ -98,6 +98,8 @@ Biên dịch file Java (run.java) thành run.class
 
 ![image](https://github.com/user-attachments/assets/3a2927a9-5f3f-475c-b604-615866da9497)
 
+Sử dụng metasploit để RCE:
+
 Tạo payload trên msfvenom
 
 ![1](https://github.com/user-attachments/assets/d0ef027f-e6ba-43e9-b402-1e7da3010bd1)
